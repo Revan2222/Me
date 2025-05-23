@@ -32,8 +32,8 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <div className="text-center mb-16 opacity-0 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-400 to-purple-400 animate-gradient mb-4">
             My <span className="text-blue-400">Skills</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -43,24 +43,39 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-2 gap-12">
           {skillCategories.map((category, index) => (
-            <div key={index} className="bg-slate-800/50 p-8 rounded-2xl backdrop-blur-sm border border-slate-700">
+            <div 
+              key={index} 
+              className="bg-slate-800/50 p-8 rounded-2xl backdrop-blur-sm border border-slate-700 hover:border-blue-500 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] opacity-0 animate-fade-in"
+              style={{ animationDelay: `${0.1 + index * 0.1}s` }}
+            >
               <div className="flex items-center space-x-3 mb-8">
-                {category.icon}
+                <div className="p-2 bg-slate-700/50 rounded-lg">{category.icon}</div>
                 <h3 className="text-2xl font-semibold text-white">{category.title}</h3>
               </div>
               
               <div className="space-y-6">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
+                  <div 
+                    key={skillIndex}
+                    className="opacity-0 animate-fade-in"
+                    style={{ animationDelay: `${0.3 + skillIndex * 0.1 + index * 0.05}s` }}  
+                  >
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-gray-300 font-medium">{skill.name}</span>
                       <span className="text-blue-400 text-sm font-medium">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-slate-700 rounded-full h-2">
+                    <div className="w-full bg-slate-700 rounded-full h-2 overflow-hidden">
                       <div 
-                        className="bg-gradient-to-r from-blue-500 to-blue-400 h-2 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
+                        className="h-2 rounded-full animate-shimmer relative"
+                        style={{ 
+                          width: "0%",
+                          animation: `slide-up 1s ease forwards ${0.5 + skillIndex * 0.1}s`,
+                          background: `linear-gradient(90deg, #3B82F6 0%, #60A5FA 100%)`,
+                          maxWidth: `${skill.level}%`
+                        }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                      </div>
                     </div>
                   </div>
                 ))}

@@ -27,6 +27,7 @@ export interface Certificate {
 const Index = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [certificates, setCertificates] = useState<Certificate[]>([]);
+  const [loaded, setLoaded] = useState(false);
 
   // Load data from localStorage on component mount
   useEffect(() => {
@@ -63,6 +64,11 @@ const Index = () => {
       ];
       setCertificates(defaultCertificates);
     }
+
+    // Add a small delay to ensure animations work properly
+    setTimeout(() => {
+      setLoaded(true);
+    }, 300);
   }, []);
 
   // Save to localStorage whenever data changes
@@ -93,9 +99,11 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-      <Navigation />
-      <main>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 animate-gradient">
+      <div className="opacity-0 animate-fade-in" style={{animationDelay: '0s', animationDuration: '0.8s'}}>
+        <Navigation />
+      </div>
+      <main className={`transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
         <Hero />
         <About />
         <Skills />

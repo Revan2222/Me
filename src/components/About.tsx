@@ -3,10 +3,10 @@ import { User, Book } from 'lucide-react';
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-slate-800/50">
+    <section id="about" className="py-20 bg-gradient-to-b from-slate-900 via-slate-800/50 to-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <div className="text-center mb-16 opacity-0 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-400 to-purple-400 animate-gradient mb-4">
             About <span className="text-blue-400">Me</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -15,9 +15,9 @@ const About = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+          <div className="space-y-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <div className="flex items-start space-x-4 hover:transform hover:translate-y-[-5px] transition-all duration-300">
+              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-400 rounded-lg flex items-center justify-center shadow-lg">
                 <User className="text-white" size={24} />
               </div>
               <div>
@@ -31,8 +31,8 @@ const About = () => {
               </div>
             </div>
 
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+            <div className="flex items-start space-x-4 hover:transform hover:translate-y-[-5px] transition-all duration-300">
+              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-400 rounded-lg flex items-center justify-center shadow-lg">
                 <Book className="text-white" size={24} />
               </div>
               <div>
@@ -50,29 +50,30 @@ const About = () => {
             </div>
           </div>
 
-          <div className="bg-slate-700/50 p-8 rounded-2xl backdrop-blur-sm border border-slate-600">
+          <div 
+            className="bg-slate-700/30 p-8 rounded-2xl backdrop-blur-sm border border-slate-600 hover:border-blue-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] opacity-0 animate-fade-in"
+            style={{ animationDelay: '0.3s' }}
+          >
             <h3 className="text-2xl font-semibold text-white mb-6">Quick Facts</h3>
             <div className="space-y-4">
-              <div className="flex justify-between items-center py-2 border-b border-slate-600">
-                <span className="text-gray-400">Age</span>
-                <span className="text-white font-medium">22</span>
-              </div>
-              <div className="flex justify-between items-center py-2 border-b border-slate-600">
-                <span className="text-gray-400">Location</span>
-                <span className="text-white font-medium">New York, USA</span>
-              </div>
-              <div className="flex justify-between items-center py-2 border-b border-slate-600">
-                <span className="text-gray-400">Languages</span>
-                <span className="text-white font-medium">English, Spanish</span>
-              </div>
-              <div className="flex justify-between items-center py-2 border-b border-slate-600">
-                <span className="text-gray-400">Interests</span>
-                <span className="text-white font-medium">Coding, Design, Music</span>
-              </div>
-              <div className="flex justify-between items-center py-2">
-                <span className="text-gray-400">Availability</span>
-                <span className="text-green-400 font-medium">Open to Work</span>
-              </div>
+              {[
+                { label: "Age", value: "22" },
+                { label: "Location", value: "New York, USA" },
+                { label: "Languages", value: "English, Spanish" },
+                { label: "Interests", value: "Coding, Design, Music" },
+                { label: "Availability", value: "Open to Work", special: true }
+              ].map((fact, index) => (
+                <div 
+                  key={index} 
+                  className="flex justify-between items-center py-3 border-b border-slate-600/50 opacity-0 animate-fade-in" 
+                  style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+                >
+                  <span className="text-gray-400">{fact.label}</span>
+                  <span className={`${fact.special ? "text-green-400" : "text-white"} font-medium`}>
+                    {fact.value}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
