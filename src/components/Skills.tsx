@@ -1,5 +1,6 @@
 
 import { Code, Image } from 'lucide-react';
+import { Progress } from './ui/progress';
 
 const Skills = () => {
   const skillCategories = [
@@ -64,19 +65,15 @@ const Skills = () => {
                       <span className="text-gray-300 font-medium">{skill.name}</span>
                       <span className="text-blue-400 text-sm font-medium">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-slate-700 rounded-full h-2 overflow-hidden">
-                      <div 
-                        className="h-2 rounded-full animate-shimmer relative"
-                        style={{ 
-                          width: "0%",
-                          animation: `slide-up 1s ease forwards ${0.5 + skillIndex * 0.1}s`,
-                          background: `linear-gradient(90deg, #3B82F6 0%, #60A5FA 100%)`,
-                          maxWidth: `${skill.level}%`
-                        }}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
-                      </div>
-                    </div>
+                    <Progress 
+                      value={skill.level} 
+                      className="h-2 bg-slate-700" 
+                      indicatorClassName={`${
+                        skill.level > 80 ? 'bg-green-500' : 
+                        skill.level > 60 ? 'bg-blue-500' : 
+                        skill.level > 40 ? 'bg-yellow-500' : 'bg-red-500'
+                      } h-full transition-all duration-1000 ease-in-out`}
+                    />
                   </div>
                 ))}
               </div>

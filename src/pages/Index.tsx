@@ -36,33 +36,10 @@ const Index = () => {
     
     if (savedProjects) {
       setProjects(JSON.parse(savedProjects));
-    } else {
-      // Default projects for demo
-      const defaultProjects: Project[] = [
-        {
-          id: '1',
-          title: 'E-commerce Website',
-          description: 'A full-stack e-commerce platform built with React and Node.js',
-          githubLink: 'https://github.com/username/ecommerce',
-          liveLink: 'https://myecommerce.netlify.app'
-        }
-      ];
-      setProjects(defaultProjects);
     }
     
     if (savedCertificates) {
       setCertificates(JSON.parse(savedCertificates));
-    } else {
-      // Default certificates for demo
-      const defaultCertificates: Certificate[] = [
-        {
-          id: '1',
-          title: 'React Developer Certification',
-          description: 'Completed comprehensive React.js course covering hooks, routing, and state management',
-          link: 'https://certificate-link.com'
-        }
-      ];
-      setCertificates(defaultCertificates);
     }
 
     // Add a small delay to ensure animations work properly
@@ -79,16 +56,6 @@ const Index = () => {
   useEffect(() => {
     localStorage.setItem('portfolio-certificates', JSON.stringify(certificates));
   }, [certificates]);
-
-  const addProject = (project: Omit<Project, 'id'>) => {
-    const newProject = { ...project, id: Date.now().toString() };
-    setProjects([...projects, newProject]);
-  };
-
-  const addCertificate = (certificate: Omit<Certificate, 'id'>) => {
-    const newCertificate = { ...certificate, id: Date.now().toString() };
-    setCertificates([...certificates, newCertificate]);
-  };
 
   const deleteProject = (id: string) => {
     setProjects(projects.filter(p => p.id !== id));
@@ -109,12 +76,10 @@ const Index = () => {
         <Skills />
         <Projects 
           projects={projects} 
-          onAddProject={addProject}
           onDeleteProject={deleteProject}
         />
         <Certificates 
           certificates={certificates}
-          onAddCertificate={addCertificate}
           onDeleteCertificate={deleteCertificate}
         />
         <Contact />

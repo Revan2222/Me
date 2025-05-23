@@ -1,17 +1,34 @@
 
-import { useState } from 'react';
 import { Link as LinkIcon, BookOpen } from 'lucide-react';
 import { Certificate } from '../pages/Index';
-import CertificateForm from './CertificateForm';
 
 interface CertificatesProps {
   certificates: Certificate[];
-  onAddCertificate: (certificate: Omit<Certificate, 'id'>) => void;
   onDeleteCertificate: (id: string) => void;
 }
 
-const Certificates = ({ certificates, onAddCertificate, onDeleteCertificate }: CertificatesProps) => {
-  const [showForm, setShowForm] = useState(false);
+const Certificates = ({ certificates, onDeleteCertificate }: CertificatesProps) => {
+  // We'll use a combination of the provided certificates and some default ones
+  const displayedCertificates = certificates.length >= 3 ? certificates : [
+    {
+      id: '1',
+      title: 'React Developer Certification',
+      description: 'Completed comprehensive React.js course covering hooks, routing, state management, and best practices for building modern web applications.',
+      link: 'https://certificate-link.com'
+    },
+    {
+      id: '2',
+      title: 'Full Stack Web Development',
+      description: 'Intensive program covering both frontend and backend technologies including JavaScript, Node.js, Express, and MongoDB.',
+      link: 'https://certificate-link.com'
+    },
+    {
+      id: '3',
+      title: 'UI/UX Design Fundamentals',
+      description: 'Learned essential principles of user interface and experience design, including wireframing, prototyping, and user testing.',
+      link: 'https://certificate-link.com'
+    }
+  ];
 
   return (
     <section id="certificates" className="py-20">
@@ -20,31 +37,13 @@ const Certificates = ({ certificates, onAddCertificate, onDeleteCertificate }: C
           <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-400 to-purple-400 animate-gradient mb-4">
             My <span className="text-blue-400">Certificates</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Professional certifications and achievements that showcase my learning journey
           </p>
-          <button
-            onClick={() => setShowForm(!showForm)}
-            className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-all transform hover:scale-105 hover:shadow-lg shadow-md"
-          >
-            {showForm ? 'Cancel' : 'Add New Certificate'}
-          </button>
         </div>
 
-        {showForm && (
-          <div className="mb-12 bg-slate-800/70 p-8 rounded-2xl border border-blue-500/30 shadow-xl backdrop-blur-sm animate-fade-in">
-            <CertificateForm 
-              onSubmit={(certificate) => {
-                onAddCertificate(certificate);
-                setShowForm(false);
-              }}
-              onCancel={() => setShowForm(false)}
-            />
-          </div>
-        )}
-
         <div className="grid md:grid-cols-2 gap-8">
-          {certificates.map((certificate, idx) => (
+          {displayedCertificates.map((certificate, idx) => (
             <div 
               key={certificate.id} 
               className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700 hover:border-blue-500 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] opacity-0 animate-fade-in"
@@ -67,24 +66,12 @@ const Certificates = ({ certificates, onAddCertificate, onDeleteCertificate }: C
                       <LinkIcon size={18} className="group-hover:rotate-45 transition-transform duration-300" />
                       <span className="text-sm">View Certificate</span>
                     </a>
-                    <button
-                      onClick={() => onDeleteCertificate(certificate.id)}
-                      className="text-red-400 hover:text-red-300 text-sm transition-colors"
-                    >
-                      Delete
-                    </button>
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        {certificates.length === 0 && (
-          <div className="text-center py-12 bg-slate-800/30 rounded-2xl border border-slate-700 animate-fade-in">
-            <p className="text-gray-400 text-lg">No certificates yet. Add your first certificate!</p>
-          </div>
-        )}
       </div>
     </section>
   );
