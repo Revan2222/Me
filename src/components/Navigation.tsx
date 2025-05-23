@@ -42,9 +42,9 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+    <nav className="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700 h-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center h-16">
           <div className="text-2xl font-bold text-white">
             Portfolio
           </div>
@@ -78,7 +78,7 @@ const Navigation = () => {
         {/* Mobile Navigation Menu */}
         {isOpen && (
           <div className="md:hidden py-4 border-t border-slate-700">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 pb-4">
               {navItems.map((item) => (
                 <button
                   key={item.id}
