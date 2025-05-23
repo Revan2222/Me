@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 pb-16">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -left-20 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse-slow"></div>
@@ -62,7 +62,7 @@ const Hero = () => {
           Fresh graduate ready to bring creativity and technical skills to your team.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 animate-fade-in stagger-3">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 animate-fade-in stagger-3 mb-24">
           <button
             onClick={scrollToAbout}
             className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all transform hover:scale-105 hover:shadow-lg shadow-md"
@@ -78,7 +78,7 @@ const Hero = () => {
           </a>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 animate-fade-in stagger-4">
+        <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 opacity-0 animate-fade-in stagger-4">
           <button onClick={scrollToAbout} className="text-gray-400 hover:text-white transition-colors animate-bounce">
             <ArrowDown size={32} />
           </button>
