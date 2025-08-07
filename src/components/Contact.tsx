@@ -69,7 +69,7 @@ const Contact = () => {
                 <div>
                   <p className="text-gray-400 text-sm">Email</p>
                   <a href="mailto:john.doe@email.com" className="text-white hover:text-blue-400 transition-colors">
-                    john.doe@email.com
+                    revanofficial22@gmail.com
                   </a>
                 </div>
               </div>
@@ -85,12 +85,12 @@ const Contact = () => {
                 <div>
                   <p className="text-gray-400 text-sm">GitHub</p>
                   <a 
-                    href="https://github.com/johndoe" 
+                    href="https://github.com/Revan2222" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-white hover:text-blue-400 transition-colors"
                   >
-                    github.com/johndoe
+                    github.com/Revan
                   </a>
                 </div>
               </div>
@@ -106,13 +106,12 @@ const Contact = () => {
                 <div>
                   <p className="text-gray-400 text-sm">LinkedIn</p>
                   <a 
-                    href="https://linkedin.com/in/johndoe" 
+                    href="https://www.linkedin.com/in/revanr/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-white hover:text-blue-400 transition-colors"
                   >
-                    linkedin.com/in/johndoe
-                  </a>
+                    linkedin.com/in/Revan                  </a>
                 </div>
               </div>
             </div>

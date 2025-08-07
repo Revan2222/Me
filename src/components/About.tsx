@@ -1,4 +1,3 @@
-
 import { User, Book } from 'lucide-react';
 
 const About = () => {
@@ -23,10 +22,9 @@ const About = () => {
               <div>
                 <h3 className="text-xl font-semibold text-white mb-2">Personal Info</h3>
                 <p className="text-gray-300 leading-relaxed">
-                  I'm a passionate frontend developer with a keen eye for design and user experience. 
-                  I love turning complex problems into simple, beautiful, and intuitive solutions. 
-                  When I'm not coding, you can find me exploring new technologies, contributing to open source, 
-                  or playing chess.
+                  I'm Revan R, a passionate Computer Science Engineering student from Tamil Nadu with a strong interest in web development and cloud computing.
+                  I enjoy solving real-world problems through code and constantly strive to learn new technologies and frameworks.
+                  When not coding, I explore UI/UX designs and contribute to personal projects.
                 </p>
               </div>
             </div>
@@ -38,12 +36,12 @@ const About = () => {
               <div>
                 <h3 className="text-xl font-semibold text-white mb-2">Education</h3>
                 <div className="space-y-2 text-gray-300">
-                  <p className="font-medium">Bachelor of Technology in Computer Science</p>
-                  <p className="text-blue-400">ABC University • 2020-2024</p>
-                  <p className="text-sm">CGPA: 8.5/10</p>
+                  <p className="font-medium">B.E. in Computer Science and Engineering</p>
+                  <p className="text-blue-400">Karpagam Institute of Technology • 2021–2025</p>
+                  <p className="text-sm">CGPA: 7.3</p>
                   <p className="text-sm leading-relaxed">
-                    Specialized in web development, data structures, and software engineering. 
-                    Active member of the coding club and participated in multiple hackathons.
+                    Actively engaged in cloud computing, web technologies, and team-based software projects.
+                    Participated in hackathons and cloud-based deployment of personal projects.
                   </p>
                 </div>
               </div>
@@ -57,10 +55,10 @@ const About = () => {
             <h3 className="text-2xl font-semibold text-white mb-6">Quick Facts</h3>
             <div className="space-y-4">
               {[
-                { label: "Age", value: "22" },
-                { label: "Location", value: "New York, USA" },
-                { label: "Languages", value: "English, Spanish" },
-                { label: "Interests", value: "Coding, Design, Music" },
+                { label: "Age", value: "21" },
+                { label: "Location", value: "Kumbakonam, Tamil Nadu" },
+                { label: "Languages", value: "English, Tamil" },
+                { label: "Tech Stack", value: "Python, React.js, AWS" },
                 { label: "Availability", value: "Open to Work", special: true }
               ].map((fact, index) => (
                 <div 

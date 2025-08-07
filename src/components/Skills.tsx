@@ -1,31 +1,28 @@
-
 import { Code, Image } from 'lucide-react';
 import { Progress } from './ui/progress';
 
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Frontend Technologies",
+      title: "Tech Stack Proficiency (Frontend + Backend)",
       icon: <Code className="text-blue-400" size={24} />,
       skills: [
         { name: "HTML/CSS", level: 90 },
         { name: "JavaScript", level: 85 },
         { name: "React.js", level: 80 },
-        { name: "TypeScript", level: 75 },
-        { name: "Tailwind CSS", level: 85 },
-        { name: "Vue.js", level: 60 },
+        { name: "UI/UX Design", level: 75 },
+        { name: "Spring Boot", level: 80 }
       ]
     },
     {
-      title: "Tools & Others",
+      title: "Tools & Languages",
       icon: <Image className="text-green-400" size={24} />,
       skills: [
         { name: "Git/GitHub", level: 85 },
-        { name: "Figma", level: 70 },
-        { name: "Node.js", level: 65 },
-        { name: "MongoDB", level: 60 },
-        { name: "Docker", level: 50 },
-        { name: "AWS", level: 45 },
+        { name: "AWS", level: 70 },
+        { name: "Figma", level: 75 },
+        { name: "Python", level: 70 },
+        { name: "Java", level: 70 }
       ]
     }
   ];

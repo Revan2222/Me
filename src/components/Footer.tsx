@@ -40,11 +40,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">Connect</h4>
             <div className="space-y-2">
-              <p className="text-gray-400">john.doe@email.com</p>
-              <p className="text-gray-400">New York, USA</p>
+              <p className="text-gray-400">revanofficial22@gmail.com</p>
+              <p className="text-gray-400">Coimbatore, TamilNadu</p>
               <div className="flex space-x-4 mt-4">
                 <a 
-                  href="https://github.com/johndoe" 
+                  href="https://github.com/Revan2222" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -52,7 +52,7 @@ const Footer = () => {
                   GitHub
                 </a>
                 <a 
-                  href="https://linkedin.com/in/johndoe" 
+                  href="https://www.linkedin.com/in/revanr/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -62,12 +62,6 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="border-t border-slate-700 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
-            © {currentYear} John Doe. All rights reserved. Built with React & Tailwind CSS.
-          </p>
         </div>
       </div>
     </footer>

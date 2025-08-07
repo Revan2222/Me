@@ -9,25 +9,35 @@ interface CertificatesProps {
 
 const Certificates = ({ certificates, onDeleteCertificate }: CertificatesProps) => {
   // We'll use a combination of the provided certificates and some default ones
-  const displayedCertificates = certificates.length >= 3 ? certificates : [
-    {
-      id: '1',
-      title: 'React Developer Certification',
-      description: 'Completed comprehensive React.js course covering hooks, routing, state management, and best practices for building modern web applications.',
-      link: 'https://certificate-link.com'
-    },
-    {
-      id: '2',
-      title: 'Full Stack Web Development',
-      description: 'Intensive program covering both frontend and backend technologies including JavaScript, Node.js, Express, and MongoDB.',
-      link: 'https://certificate-link.com'
-    },
-    {
-      id: '3',
-      title: 'UI/UX Design Fundamentals',
-      description: 'Learned essential principles of user interface and experience design, including wireframing, prototyping, and user testing.',
-      link: 'https://certificate-link.com'
-    }
+  const displayedCertificates = certificates.length >= 3 ? certificates : 
+   [
+      {
+    id: '1',
+    title: 'Responsive Web Design',
+    description: 'Acquired skills in designing and developing mobile-first responsive websites that provide optimal user experience across devices.',
+    link: 'https://certificate-link.com'
+  },
+  
+  {
+    id: '2',
+    title: "Proglint's Computer Vision",
+    description: 'Learned computer vision techniques and their applications including image processing, object detection, and machine learning integration.',
+    link: 'https://certificate-link.com'
+  },
+  {
+    id: '3',
+    title: 'Docker for Developers',
+    description: 'Mastered containerization concepts and hands-on experience with Docker to build, ship, and run scalable applications.',
+    link: 'https://certificate-link.com'
+  },
+  {
+    id: '4',
+    title: 'AWS Academy Cloud Foundations',
+    description: 'Intensive program covering both frontend and backend technologies including JavaScript, Node.js, Express, and MongoDB.',
+    link: 'https://certificate-link.com'
+  }
+
+
   ];
 
   return (

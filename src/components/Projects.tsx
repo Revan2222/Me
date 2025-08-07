@@ -12,10 +12,10 @@ const Projects = ({ projects, onDeleteProject }: ProjectsProps) => {
   const displayedProjects = projects.length >= 3 ? projects : [
     {
       id: '1',
-      title: 'E-commerce Website',
-      description: 'A full-stack e-commerce platform built with React and Node.js featuring product catalog, shopping cart, and secure checkout.',
-      githubLink: 'https://github.com/username/ecommerce',
-      liveLink: 'https://myecommerce.netlify.app'
+      title: 'Home-Rental Website',
+      description: 'A full-stack e-commerce platform built with Reactjs and featuring Home Rental Booking and secure checkout.',
+      githubLink: 'https://github.com/Revan2222/RentMate.git',
+      liveLink: 'https://rent-mate-seven.vercel.app/'
     },
     {
       id: '2',
