@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -14,11 +13,12 @@ const Navigation = () => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          // Change threshold for better Home detection
+          return rect.top <= 0 && rect.bottom >= 0;
         }
         return false;
       });
-      
+
       if (current) setActiveSection(current);
       setScrolled(window.scrollY > 30);
     };
@@ -45,9 +45,12 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 backdrop-blur-md border-b transition-all duration-300 h-16 ${
-      scrolled ? 'bg-slate-900/90 border-slate-700 shadow-lg' : 'bg-transparent border-transparent'
-    }`}>
+    <nav
+      style={{ zIndex: 9999, position: 'fixed', top: 0, left: 0, width: '100%' }}
+      className={`backdrop-blur-md border-b transition-all duration-300 h-16 ${
+        scrolled ? 'bg-slate-900/90 border-slate-700 shadow-lg' : 'bg-transparent border-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-400 to-purple-400 animate-gradient">

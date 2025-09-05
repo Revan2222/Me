@@ -58,7 +58,7 @@ const About = () => {
                 { label: "Age", value: "21" },
                 { label: "Location", value: "Kumbakonam, Tamil Nadu" },
                 { label: "Languages", value: "English, Tamil" },
-                { label: "Tech Stack", value: "Python, React.js, AWS" },
+                { label: "Tech Stack", value: "FUll-stack Java, AWS" },
                 { label: "Availability", value: "Open to Work", special: true }
               ].map((fact, index) => (
                 <div 

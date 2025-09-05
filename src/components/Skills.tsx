@@ -1,28 +1,38 @@
-import { Code, Image } from 'lucide-react';
+import { Code, Cloud, Wrench } from 'lucide-react';
 import { Progress } from './ui/progress';
 
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Tech Stack Proficiency (Frontend + Backend)",
+      title: "Frontend & UI/UX",
       icon: <Code className="text-blue-400" size={24} />,
       skills: [
         { name: "HTML/CSS", level: 90 },
-        { name: "JavaScript", level: 85 },
+        { name: "JavaScript (ES6+)", level: 85 },
         { name: "React.js", level: 80 },
-        { name: "UI/UX Design", level: 75 },
-        { name: "Spring Boot", level: 80 }
+        { name: "UI/UX Design (Figma)", level: 75 },
+        { name: "Tailwind CSS", level: 80 }
       ]
     },
     {
-      title: "Tools & Languages",
-      icon: <Image className="text-green-400" size={24} />,
+      title: "Backend & Programming",
+      icon: <Wrench className="text-green-400" size={24} />,
       skills: [
+        { name: "Spring Boot", level: 80 },
+        { name: "Flask", level: 70 },
+        { name: "Python", level: 75 },
+        { name: "Java", level: 70 },
+        { name: "SQL", level: 70 }
+      ]
+    },
+    {
+      title: "Cloud & DevOps",
+      icon: <Cloud className="text-purple-400" size={24} />,
+      skills: [
+        { name: "AWS (EC2, S3, Lambda, DynamoDB)", level: 70 },
         { name: "Git/GitHub", level: 85 },
-        { name: "AWS", level: 70 },
-        { name: "Figma", level: 75 },
-        { name: "Python", level: 70 },
-        { name: "Java", level: 70 }
+        { name: "CI/CD (GitHub Actions)", level: 75 },
+        { name: "Docker", level: 65 },
       ]
     }
   ];
@@ -35,11 +45,12 @@ const Skills = () => {
             My <span className="text-blue-400">Skills</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Here are the technologies and tools I work with to bring ideas to life
+            A blend of frontend, backend, and cloud expertise to build scalable, responsive, and
+            user-focused applications.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-3 gap-12">
           {skillCategories.map((category, index) => (
             <div 
               key={index} 

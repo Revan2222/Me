@@ -1,6 +1,6 @@
-
 import { useState } from 'react';
 import { Mail, Github, User } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,17 +16,52 @@ const Contact = () => {
     linkedin: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Contact form submitted:', formData);
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  // Basic validation before sending
+  if (!formData.name || !formData.email || !formData.message) {
+    alert('Please fill in all fields before submitting.');
+    return;
+  }
+
+  // Debug: log form data
+  console.log('Sending email with data:', {
+    from_name: formData.name,
+    from_email: formData.email,
+    message: formData.message,
+  });
+
+  try {
+    const result = await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    );
+
+    console.log('Email sent successfully:', result);
+
+    // Reset form and show success message
     setIsSubmitted(true);
     setFormData({ name: '', email: '', message: '' });
-    
-    // Reset the success message after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 3000);
-  };
+    setTimeout(() => setIsSubmitted(false), 3000);
+
+  } catch (error: any) {
+    console.error('Email sending failed:', error);
+    if (error?.status === 400) {
+      alert('EmailJS: Bad Request. Check your service/template IDs and template variables.');
+    } else if (error?.status === 412) {
+      alert('EmailJS: Gmail API scopes issue. Check your Gmail integration.');
+    } else {
+      alert('Something went wrong. Please try again later.');
+    }
+  }
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -48,6 +83,7 @@ const Contact = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Left Section */}
           <div className="space-y-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.1s' }}>
             <div>
               <h3 className="text-2xl font-semibold text-white mb-6">Let's connect!</h3>
@@ -57,7 +93,9 @@ const Contact = () => {
               </p>
             </div>
 
+            {/* Contact Cards */}
             <div className="space-y-6">
+              {/* Email */}
               <div 
                 className="flex items-center space-x-4 p-4 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-blue-500/50 transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                 onMouseEnter={() => setHoverState({...hoverState, email: true})}
@@ -68,12 +106,13 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm">Email</p>
-                  <a href="mailto:john.doe@email.com" className="text-white hover:text-blue-400 transition-colors">
+                  <a href="mailto:revanofficial22@gmail.com" className="text-white hover:text-blue-400 transition-colors">
                     revanofficial22@gmail.com
                   </a>
                 </div>
               </div>
 
+              {/* GitHub */}
               <div 
                 className="flex items-center space-x-4 p-4 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-blue-500/50 transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                 onMouseEnter={() => setHoverState({...hoverState, github: true})}
@@ -95,6 +134,7 @@ const Contact = () => {
                 </div>
               </div>
 
+              {/* LinkedIn */}
               <div 
                 className="flex items-center space-x-4 p-4 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-blue-500/50 transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                 onMouseEnter={() => setHoverState({...hoverState, linkedin: true})}
@@ -111,12 +151,14 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="text-white hover:text-blue-400 transition-colors"
                   >
-                    linkedin.com/in/Revan                  </a>
+                    linkedin.com/in/Revan
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Right Section - Form */}
           <div 
             className="bg-slate-800/50 p-8 rounded-2xl backdrop-blur-sm border border-slate-700 hover:border-blue-500/30 transition-all duration-500 transform hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] opacity-0 animate-fade-in"
             style={{ animationDelay: '0.3s' }}

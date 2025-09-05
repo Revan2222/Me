@@ -1,4 +1,3 @@
-
 import { Github, Link as LinkIcon, Briefcase } from 'lucide-react';
 import { Project } from '../pages/Index';
 
@@ -8,28 +7,35 @@ interface ProjectsProps {
 }
 
 const Projects = ({ projects, onDeleteProject }: ProjectsProps) => {
-  // We'll use a combination of the provided projects and some default ones
+  // If no dynamic projects provided, fallback to my main 5
   const displayedProjects = projects.length >= 3 ? projects : [
     {
       id: '1',
-      title: 'Home-Rental Website',
-      description: 'A full-stack e-commerce platform built with Reactjs and featuring Home Rental Booking and secure checkout.',
+      title: 'Home Rental Platform',
+      description: 'A full-stack home rental system with dual login, property listings, filters, and booking management. Built with React.js, Spring Boot, and MySQL.',
       githubLink: 'https://github.com/Revan2222/RentMate.git',
       liveLink: 'https://rent-mate-seven.vercel.app/'
     },
     {
       id: '2',
-      title: 'Personal Portfolio',
-      description: 'A responsive portfolio website built with React, TypeScript, and Tailwind CSS, showcasing my projects and skills.',
-      githubLink: 'https://github.com/username/portfolio',
-      liveLink: 'https://myportfolio.netlify.app'
+      title: 'Background Remover Web App',
+      description: 'A web app built with Flask, JavaScript, and HTML/CSS to remove image backgrounds seamlessly.',
+      githubLink: 'https://github.com/Revan2222/BG-Remover-app.git',
+      liveLink: '#'
     },
     {
       id: '3',
-      title: 'Task Management App',
-      description: 'A task management application with drag-and-drop functionality, user authentication, and real-time updates.',
-      githubLink: 'https://github.com/username/taskmanager',
-      liveLink: 'https://mytaskmanager.netlify.app'
+      title: 'AWS Serverless Student Management with Chatbot',
+      description: 'Built a serverless student management system using AWS Lambda, DynamoDB, and S3. Integrated AWS Lex chatbot for real-time query resolution.',
+      githubLink: 'https://github.com/Revan2222/Serverless-student-Management-Bot.git',
+      liveLink: '#'
+    },
+    {
+      id: '4',
+      title: 'CI/CD Portfolio Deployment',
+      description: 'Automated deployment of a React portfolio to AWS S3 using GitHub Actions. Implemented CI/CD pipeline for scalable hosting.',
+      githubLink: 'https://github.com/Revan2222/Me.git',
+      liveLink: '#'
     }
   ];
 
@@ -41,7 +47,7 @@ const Projects = ({ projects, onDeleteProject }: ProjectsProps) => {
             My <span className="text-blue-400">Projects</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
-            A showcase of my recent work and personal projects
+            A showcase of my academic and personal projects, combining frontend, backend, and cloud expertise
           </p>
         </div>
 
@@ -65,24 +71,28 @@ const Projects = ({ projects, onDeleteProject }: ProjectsProps) => {
                 </p>
                 
                 <div className="flex space-x-4">
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
-                  >
-                    <Github size={18} />
-                    <span className="text-sm">Code</span>
-                  </a>
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition-colors"
-                  >
-                    <LinkIcon size={18} />
-                    <span className="text-sm">Live Demo</span>
-                  </a>
+                  {project.githubLink && (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
+                    >
+                      <Github size={18} />
+                      <span className="text-sm">Code</span>
+                    </a>
+                  )}
+                  {project.liveLink && project.liveLink !== '#' && (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition-colors"
+                    >
+                      <LinkIcon size={18} />
+                      <span className="text-sm">Live Demo</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

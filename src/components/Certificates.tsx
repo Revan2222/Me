@@ -28,13 +28,13 @@ const Certificates = ({ certificates, onDeleteCertificate }: CertificatesProps) 
     id: '3',
     title: 'Docker for Developers',
     description: 'Mastered containerization concepts and hands-on experience with Docker to build, ship, and run scalable applications.',
-    link: 'https://certificate-link.com'
+    link: 'https://drive.google.com/file/d/1Djj51oGAH5d_IiOS2XXz9CBePvTo05Lk/view?usp=drive_link'
   },
   {
     id: '4',
     title: 'AWS Academy Cloud Foundations',
     description: 'Intensive program covering both frontend and backend technologies including JavaScript, Node.js, Express, and MongoDB.',
-    link: 'https://certificate-link.com'
+    link: 'https://drive.google.com/file/d/1dtTaLk2YTnn1rcL1eB93FSsRIaljp0kw/view?usp=drive_link'
   }
 
 

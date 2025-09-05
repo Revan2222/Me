@@ -1,4 +1,3 @@
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -13,14 +12,17 @@ const Footer = () => {
     <footer className="bg-slate-900 border-t border-slate-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8">
+          {/* About */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4">John Doe</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Revan R</h3>
             <p className="text-gray-400 leading-relaxed">
-              Frontend Developer passionate about creating beautiful, 
-              functional web experiences. Always eager to learn and grow.
+              Full-Stack Java Developer skilled in React.js, Spring Boot, and AWS.  
+              Passionate about building scalable applications, solving problems,  
+              and constantly exploring new technologies.
             </p>
           </div>
 
+          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
             <ul className="space-y-2">
@@ -37,11 +39,12 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Contact + Socials */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">Connect</h4>
             <div className="space-y-2">
               <p className="text-gray-400">revanofficial22@gmail.com</p>
-              <p className="text-gray-400">Coimbatore, TamilNadu</p>
+              <p className="text-gray-400">Coimbatore, Tamil Nadu</p>
               <div className="flex space-x-4 mt-4">
                 <a 
                   href="https://github.com/Revan2222" 
@@ -62,6 +65,11 @@ const Footer = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="mt-12 text-center text-gray-500 text-sm">
+          © {currentYear} Revan R. All rights reserved.
         </div>
       </div>
     </footer>

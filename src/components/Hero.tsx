@@ -10,9 +10,12 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 pb-16">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 pb-16 z-0"
+    >
       {/* Background bubbles and particles */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute -top-40 -left-20 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse-slow"></div>
         <div className="absolute top-1/3 -right-20 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse-slow delay-1000"></div>
         <div className="absolute -bottom-40 left-1/3 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse-slow delay-2000"></div>
@@ -29,7 +32,7 @@ const Hero = () => {
                 left: `${Math.random() * 100}%`,
                 opacity: Math.random() * 0.5 + 0.2,
                 animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${Math.random() * 10 + 10}s`
+                animationDuration: `${Math.random() * 10 + 10}s`,
               }}
             ></div>
           ))}
@@ -43,7 +46,12 @@ const Hero = () => {
 
         <p className="text-xl md:text-2xl text-gray-300 mb-4 opacity-0 animate-fade-in stagger-1">
           <Typewriter
-            words={['Frontend Developer', 'React.js Lover', 'Full-Stack Learner','Spring Boot Developer']}
+            words={[
+              'Full-Stack Developer',
+              'React.js & Spring Boot',
+              'Cloud Computing (Amazon Web Service)',
+              'DevOps',
+            ]}
             loop={true}
             cursor
             cursorStyle="|"
@@ -54,12 +62,24 @@ const Hero = () => {
         </p>
 
         <p className="text-lg text-gray-400 mb-6 max-w-2xl mx-auto opacity-0 animate-fade-in stagger-2">
-          I build beautiful and responsive web experiences with React.js, Tailwind CSS, and a passion for great design. Currently learning backend integration to become a full-stack developer.
+          Passionate Computer Science Engineering student skilled in building scalable web
+          applications, cloud-based solutions, and intuitive user experiences. Experienced in React.js,
+          Spring Boot, Flask, AWS, and modern UI/UX design. Always exploring new technologies to
+          deliver impactful projects.
         </p>
 
         {/* Tech stack badges */}
         <div className="flex flex-wrap justify-center gap-3 mb-8">
-          {['React', 'Tailwind CSS', 'TypeScript', 'JavaScript', 'Spring Boot'].map((tech) => (
+          {[
+            'React.js',
+            'Spring Boot',
+            'AWS',
+            'Docker',
+            'Java',
+            'Python',
+            'JavaScript',
+            'SQL',
+          ].map((tech) => (
             <span
               key={tech}
               className="px-4 py-1 text-sm bg-slate-800 text-blue-300 border border-slate-600 rounded-full"
@@ -71,10 +91,18 @@ const Hero = () => {
 
         {/* Social icons */}
         <div className="flex justify-center gap-6 mb-8">
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/Revan2222"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Github className="text-gray-300 hover:text-white transition-colors" size={24} />
           </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://linkedin.com/in/revanr"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Linkedin className="text-gray-300 hover:text-white transition-colors" size={24} />
           </a>
         </div>
@@ -88,18 +116,16 @@ const Hero = () => {
             Get to Know Me
           </button>
           <a
-            href="/resume.pdf"
-            download
+            href="/Revan.pdf"
+            download="Revan_Resume.pdf"
             className="border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-blue-900 px-8 py-3 rounded-lg font-medium transition-all transform hover:scale-105 hover:shadow-lg"
           >
             Download Resume
           </a>
         </div>
-
-
       </div>
     </section>
   );
-};
+}
 
 export default Hero;

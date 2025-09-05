@@ -67,10 +67,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 animate-gradient">
-      <div className="opacity-0 animate-fade-in" style={{animationDelay: '0s', animationDuration: '0.8s'}}>
-        <Navigation />
-      </div>
+
       <main className={`transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
+        <Navigation />
         <Hero />
         <About />
         <Skills />
