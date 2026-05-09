@@ -38,7 +38,7 @@ const About = () => {
                 <div className="space-y-2 text-gray-300">
                   <p className="font-medium">B.E. in Computer Science and Engineering</p>
                   <p className="text-blue-400">Karpagam Institute of Technology • 2021–2025</p>
-                  <p className="text-sm">CGPA: 7.3</p>
+                  <p className="text-sm">CGPA: 7.5</p>
                   <p className="text-sm leading-relaxed">
                     Actively engaged in cloud computing, web technologies, and team-based software projects.
                     Participated in hackathons and cloud-based deployment of personal projects.
